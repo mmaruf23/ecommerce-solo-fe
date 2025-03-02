@@ -1,3 +1,4 @@
+import Banner from "@/components/organism/Banner";
 import Footer from "@/components/organism/Footer";
 import Navbar from "@/components/organism/Navbar";
 
@@ -8,7 +9,9 @@ export default function Home() {
       <div className="w-full flex justify-center shadow sticky top-0 z-10">
         <Navbar/>
       </div>
-      <h1 className="flex-grow">Ini Home</h1>
+      <div className="flex-grow w-full">
+        <Banner />
+      </div>
       <Footer />
     </div>
   );

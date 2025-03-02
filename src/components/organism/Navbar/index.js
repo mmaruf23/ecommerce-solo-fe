@@ -3,7 +3,7 @@ import { LayoutGrid, Menu, ShoppingCart } from "lucide-react";
 
 export default function Navbar() {
   return (
-    <div className="w-full xl:w-[1280px] flex items-center justify-between py-3 px-4">
+    <div className="w-full xl:w-[1280px] flex items-center justify-between py-3 px-4 bg-white">
       <div>
         <p>LOGO</p>
       </div>
