@@ -1,12 +1,15 @@
 import Button from "@/components/atoms/Button";
 import Footer from "@/components/organism/Footer";
 import Navbar from "@/components/organism/Navbar";
-import { LayoutList } from "lucide-react";
+import { Edit, LayoutList } from "lucide-react";
+import Link from "next/link";
 import { useRouter } from "next/router";
 import { useState } from "react";
 
 export default function ProductPage() {
   const router = useRouter();
+  console.log(router.asPath);
+  
   const [qty, setQty] = useState(1);
   return (
     <div className="flex flex-col min-h-[100svh] items-center">
@@ -31,14 +34,20 @@ export default function ProductPage() {
           <li>Deskripsi detail Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum atque culpa tempora porro animi obcaecati accusamus tempore nobis quae esse.</li>
         </div>
         <div className="w-full h-auto mt-10 flex shadow-2xl rounded">
-          <div className="2xl p-3">
+          <div className="p-3">
             <p className="mb-3">Jumlah pembelian</p>
             <Button className={"bg-gray-300"} onClick={() => {setQty(qty < 2 ? qty : qty - 1)}}>-</Button>
-            <input className="py-2 mx-2 w-16 rounded-lg border focus:outline-none text-center" type="number" value={qty} />
+            <input onChange={(e) => { if (!(e.target.value < 1)) setQty(Number(e.target.value))}} className="py-2 mx-2 w-16 rounded-lg border focus:outline-none text-center" type="number" value={qty} />
             <Button className={"bg-gray-300"} onClick={() => { setQty(qty + 1); }}>+</Button>
           </div>
           <div className="flex-grow flex justify-center items-center p-5">
             <Button className={"text-2xl w-full h-full bg-red-500 text-white"}>Add to Cart</Button>
+          </div>
+          {/* Untuk admin aja */}
+          <div className="flex justify-center items-center px-3">
+            <Link href={`${router.asPath}/edit`} className=" rounded-lg p-5 bg-red-500 text-white">
+              <Edit />
+            </Link>
           </div>
         </div>
       </div>
