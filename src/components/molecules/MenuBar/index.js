@@ -25,7 +25,7 @@ export default function MenuBar({ close }) {
           </div>
         </Link>
       )}
-      <Link href={"/user/profile"} className="flex justify-center mt-6 gap-4 px-5" >
+      <Link href={"/profile"} className="flex justify-center mt-6 gap-4 px-5" >
         <span className={"bg-gray-600 text-white w-full text-center p-4"}>Profile</span>
       </Link>
       <div className="flex justify-center mt-6 gap-4 px-5" >
